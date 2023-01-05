@@ -1,0 +1,385 @@
+{% extends 'base.html.j2' %}
+
+{% block content %}
+    <section class="row background-page" id="particles-js">
+        <div class="col-12 index-center-info">
+            <h1>Welcome</h1>
+            <h1 id="typewriter"></h1>
+            <h4>Orem, Utah</h4>
+            <button class="btn btn-hire">Let's talk</button>
+        </div>
+    </section>
+    <section class="row content-row about dark-section" id="about">
+        <div class="container">
+            <div class="row about-title">
+                <div class="col-12 section-header back-dark">
+                    <h1 class="section-title">
+                        Know Me More
+                        <span class="under-text-line"></span>
+                    </h1>
+                    <h1 class="background-text">ABOUT ME</h1>
+                </div>
+            </div>
+            <div class="row about-info">
+                <div class="col-md-7 col-sm-12">
+                    <h1>I'm <span class="highlight-text">Alejandro Gomez</span>, a full stack developer</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quia, quaerat minima velit debitis fuga. Libero iusto alias, minima porro repellat temporibus, magnam possimus praesentium quam at minus recusandae maxime illum ipsam. Aspernatur non explicabo, pariatur sequi et blanditiis nisi eius dolore impedit veniam quod est exercitationem minima, eveniet maxime quam ut commodi deserunt fugiat officiis voluptatem!.</p>
+                </div>
+                <div class="col-md-5 col-sm-12">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Name:</th>
+                                <td>Alejandro Gomez</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Email:</th>
+                                <td>alegomezc64@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Age:</th>
+                                <td colspan="2">23</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">From:</th>
+                                <td colspan="2">Bogota, Colombia</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="row content-row whatIdo light-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 section-header back-light">
+                    <h1 class="section-title">
+                        What I Do?
+                        <span class="under-text-line"></span>
+                    </h1>
+                    <h1 class="background-text">SERVICES</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-12" v-for="service in services">
+                    <div class="service">
+                        <div class="service-icon">
+                            <i :class="service.icon"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>[[ service.title ]]</h3>
+                            <p>[[ service.text ]]<p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="row content-row resume dark-section">
+        <div class="container container-padding">
+            <div class="row">
+                <div class="col-12 section-header back-dark">
+                    <h1 class="section-title">
+                        Resume
+                        <span class="under-text-line"></span>
+                    </h1>
+                    <h1 class="background-text">SUMMARY</h1>
+                </div>
+            </div>
+            <div class="row resume-squares">
+                <div class="col-md-6 col-sm-12 square-row">
+                    <h2>My Education</h2>
+                    <div class="square">
+                        <div class="square-time">
+                            <span class="badge badge-secondary">2014 - 2018</span>
+                        </div>
+                        <div class="square-title">
+                            <h3>Title</h3>
+                        </div>
+                        <div class="square-place">
+                            <h5>Bogota</h5>
+                        </div>
+                        <div class="square-text">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda molestias rerum voluptas quaerat laboriosam quia quibusdam totam doloremque quis, magnam enim cum sit corrupti, sed optio reprehenderit voluptatibus sunt at debitis doloribus? Quasi repellat eos dicta, nemo labore ullam voluptatem.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 square-row">
+                    <h2>My Experience</h2>
+                    <div class="square">
+                        <div class="square-time">
+                            <span class="badge badge-secondary">2014 - 2018</span>
+                        </div>
+                        <div class="square-title">
+                            <h3>Title</h3>
+                        </div>
+                        <div class="square-place">
+                            <h5>Bogota</h5>
+                        </div>
+                        <div class="square-text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam architecto magni sunt id maiores numquam atque quaerat cupiditate sed, laborum corporis necessitatibus quasi voluptas ratione beatae animi itaque mollitia doloremque sapiente error accusantium reiciendis provident. Recusandae autem quas dolores voluptatem!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row progress-skills">
+                <h3>My Skills</h3>
+                <div class="col-md-6 col-sm-12" v-for="skill in skills">
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="progress-title">
+                                <span class="progress-text">[[ skill.name ]]</span>
+                                <span class="progress-porcent">[[ skill.porcent ]]</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" :style="{ width : skill.porcent }" :aria-valuenow="skill.porcent" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="row content-row portfolio light-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 section-header back-light">
+                    <h1 class="section-title">
+                        My Work
+                        <span class="under-text-line"></span>
+                    </h1>
+                    <h1 class="background-text">PORTFOLIO</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 works-section">
+                    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation" v-for="(link, index) in works_links">
+                            <button class="nav-link" :class="{'active' : index == 0 }" :id="link + '-tab'" data-bs-toggle="tab" :data-bs-target="'#' + link" type="button" role="tab" :aria-controls="link" aria-selected="true">[[ link ]]</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="work-content">
+                        <div class="tab-pane container fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+                            <div class="row">
+                                <div class="col-lg-4 col-sm-6">
+                                    <div class="image-container" @click="modal.status = true, create_modal">
+                                        <img
+                                        src="{{ url_for('static', filename = 'img/works/work-packmuleexpress.png') }}"
+                                        class="w-100 shadow-1-strong rounded mb-4"
+                                        alt="Boat on Calm Water"
+                                        />
+                                        <div class="overlay">
+                                            <h2>title</h2>
+                                            <span>WordPress</span>
+                                        </div>
+                                    </div>
+            
+                                    <img
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.jpg"
+                                    class="w-100 shadow-1-strong rounded mb-4"
+                                    alt="Wintry Mountain Landscape"
+                                    />
+                                </div>
+            
+                                <div class="col-lg-4 col-sm-6">
+                                    <img
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.jpg"
+                                    class="w-100 shadow-1-strong rounded mb-4"
+                                    alt="Mountains in the Clouds"
+                                    />
+            
+                                    <img
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"
+                                    class="w-100 shadow-1-strong rounded mb-4"
+                                    alt="Boat on Calm Water"
+                                    />
+                                </div>
+            
+                                <div class="col-lg-4 col-sm-6">
+                                    <img
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
+                                    class="w-100 shadow-1-strong rounded mb-4"
+                                    alt="Waves at Sea"
+                                    />
+            
+                                    <img
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.jpg"
+                                    class="w-100 shadow-1-strong rounded mb-4"
+                                    alt="Yosemite National Park"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur ipsum earum, officiis quasi nemo omnis, deserunt ea beatae illum quos fugit alias a est modi architecto voluptate cumque rerum quam! Illum, recusandae. Ducimus eius illum nostrum incidunt perferendis neque, unde possimus veritatis quia aliquam necessitatibus quis. Et repudiandae, vel velit, nesciunt ullam totam nam dolore atque doloremque deleniti non!
+                        </div>
+                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni odio numquam debitis voluptates molestias iure placeat saepe consequuntur laborum. Dolor, eius! Delectus, maiores cum labore hic aperiam sint, quam temporibus ipsa suscipit est nostrum voluptas possimus tempore ab expedita non impedit veritatis. Asperiores neque voluptatem ad aliquam id. Eligendi veritatis a aliquid, minus commodi quia eveniet, sequi nesciunt animi, aspernatur ab. Quo consequatur et ipsam qui. Quasi quam commodi exercitationem ullam obcaecati voluptatum maiores eius quo adipisci sed, omnis asperiores illum ex doloremque nemo pariatur sequi voluptatem inventore sit quidem animi error. Possimus veritatis, autem tempore exercitationem consequuntur optio iste.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="row content-row resume dark-section">
+        <div class="container container-padding">
+            <div class="row">
+                <div class="col-12 section-header back-dark">
+                    <h1 class="section-title">
+                        Client Speak
+                        <span class="under-text-line"></span>
+                    </h1>
+                    <h1 class="background-text">TESTIMONIAL</h1>
+                </div>
+            </div>
+            <div class="row cliente-speak">
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-theme owl-customer">
+                        <div class="item">
+                            <div class="card customer-card">
+                                <div class="row card-head">
+                                    <div class="col-md-3">
+                                        <img src="{{ url_for('static', filename = 'img/customers/customer-1.jpeg') }}" class="card-img-top" alt="...">
+                                    </div>
+                                    <div class="col-md-9 card-head-text">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">From USA</p>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">"Some quick example text to build on the card title and make up the bulk of the card's content."</p>
+                                    <span class="customer-rate">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card customer-card">
+                                <div class="row card-head">
+                                    <div class="col-md-3">
+                                        <img src="{{ url_for('static', filename = 'img/customers/customer-2.jpg') }}" class="card-img-top" alt="...">
+                                    </div>
+                                    <div class="col-md-9 card-head-text">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">From USA</p>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">"Some quick example text to build on the card title and make up the bulk of the card's content."</p>
+                                    <span class="customer-rate">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card customer-card">
+                                <div class="row card-head">
+                                    <div class="col-md-3">
+                                        <img src="{{ url_for('static', filename = 'img/customers/customer-3.jpg') }}" class="card-img-top" alt="...">
+                                    </div>
+                                    <div class="col-md-9 card-head-text">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">From USA</p>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">"Some quick example text to build on the card title and make up the bulk of the card's content."</p>
+                                    <span class="customer-rate">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card customer-card">
+                                <div class="row card-head">
+                                    <div class="col-md-3">
+                                        <img src="{{ url_for('static', filename = 'img/customers/customer-2.jpg') }}" class="card-img-top" alt="...">
+                                    </div>
+                                    <div class="col-md-9 card-head-text">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">From USA</p>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">"Some quick example text to build on the card title and make up the bulk of the card's content."</p>
+                                    <span class="customer-rate">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="row content-row portfolio light-section">
+        <div class="container container-padding">
+            <div class="row">
+                <div class="col-12 section-header back-light">
+                    <h1 class="section-title">
+                        Get In Touch
+                        <span class="under-text-line"></span>
+                    </h1>
+                    <h1 class="background-text">CONTAC</h1>
+                </div>
+            </div>
+            <div class="row contact">
+                <div class="col-md-2 col-sm-3 contact-info">
+                    <h4 class="text-white">ADDRESS</h4>
+                    <p>1063 North 220 West</p>
+                    <p>Orem, Utah</p>
+                    <p><i class="fas fa-phone-alt"></i> (801) 674 8239</p>
+                    <h4 class="text-white">FOLLOW ME</h4>
+                </div>
+                <div class="col-md-10 col-sm-9">
+                    <h4 class="text-white">SEND US A NOTE</h4>
+                    <form action="/" class="form-contact" id="contact">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <input type="text" name="" id="" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <input type="text" name="" id="" class="form-control" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Tell us more about your needs.."></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="submit" form="contact" class="btn btn-primary">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

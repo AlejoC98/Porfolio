@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
+    {# OwlCarousel #}
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/OwlCarousel/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/OwlCarousel/owl.theme.default.min.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500&family=Luxurious+Script&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="main_content" id="content">
+        <header>
+            [[ scree_size ]]
+            <nav class="sidebar">
+                <section class="nav_content">
+                    <div class="logo">
+                        <img src="{{ url_for('static', filename = 'img/port-logo-white.png') }}" alt="">
+                    </div>
+                    <a href="#" class="menu-btn" @click.prevent="menu = !menu">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </section>
+                <section class="nav_menu">
+                    <ul class="nav_list" :class="{'open' : menu, 'close' : !menu}">
+                        <li v-for="tab in sidebar_tabs" :key="tab.text">
+                            <a href="#" @click.prevent="active = tab.text" :class="{'active' : active == tab.text}">
+                                <i :class="tab.icon"></i>
+                                <span class="link_name">[[ tab.text ]]</span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </nav>
+        </header>
+        <div class="container-fluid">
+            {% block content %}
+            
+            {% endblock content %}
+            <!-- Modal -->
+            <div class="work-modal" :class="{'open' : modal.status, 'close' : !modal.status}">
+                <div class="work-modal-content">
+                    <div class="work-modal-header">
+                        <h3>[[ modal.title ]]</h3>
+                        <span class="close-btn" @click.prevent="modal.status = false">
+                            <i class="fas fa-times"></i>
+                        </span>
+                    </div>
+                    <div class="work-modal-body row">
+                        <div class="col-6">
+
+
+
+                            <div id="carouselExampleIndicators" class="carousel slide modal-carousel" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img :src="modal.image" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                            </div>
+
+
+                            <!-- <img :src="modal.image" class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" /> -->
+
+
+                        </div>
+                        <div class="col-6">
+                            <h4>Project Info:</h4>
+                            <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, quidem pariatur maiores quod corporis magnam! Tempora adipisci facilis saepe ducimus placeat delectus voluptatibus rerum nisi.
+                            </p>
+                            <h4>Project Details:</h4>
+                            <ul class="pro-details">
+                                <li v-for="deta in modal.details">
+                                    <span>[[ deta ]]</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="work-modal-footer"></div>
+                </div>
+            </div>
+        </div>
+        <footer class="dark-section">
+            <div class="container">
+                <h5>Copyright &copy; 2021 Alejandro Gomez. All Rights Reserved.</h5>
+            </div>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename = 'js/vue.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/main.js') }}"></script>
+    {# Particles #}
+    <script src="{{ url_for('static', filename = 'js/particles.min.js') }}"></script>
+    {# OwlCarousel #}
+    <script src="{{ url_for('static', filename = 'js/OwlCarousel/owl.carousel.min.js') }}"></script>
+
+    <script src="{{ url_for('static', filename = 'js/app.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/core.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/scripts.js') }}"></script>
+</body>
+</html>
